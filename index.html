@@ -220,10 +220,10 @@
           <h2>Начать путь</h2>
         </div>
         <div class="reveal" style="max-width: 600px; margin: 0 auto;">
-          <form style="display: grid; gap: 24px;">
-            <input type="text" placeholder="Ваше имя" style="padding: 20px; border: 1px solid var(--border-subtle); background: var(--bg-soft); outline: none;">
-            <input type="text" placeholder="Ваш Telegram / WhatsApp" style="padding: 20px; border: 1px solid var(--border-subtle); background: var(--bg-soft); outline: none;">
-            <textarea placeholder="Ваш запрос или опыт в практиках" rows="4" style="padding: 20px; border: 1px solid var(--border-subtle); background: var(--bg-soft); outline: none;"></textarea>
+          <form action="https://formspree.io/f/mqaebrda" method="POST" style="display: grid; gap: 24px;">
+            <input type="text" name="name" placeholder="Ваше имя" required style="padding: 20px; border: 1px solid var(--border-subtle); background: var(--bg-soft); outline: none;">
+            <input type="text" name="contact" placeholder="Ваш Telegram / WhatsApp" required style="padding: 20px; border: 1px solid var(--border-subtle); background: var(--bg-soft); outline: none;">
+            <textarea name="message" placeholder="Ваш запрос или опыт в практиках" rows="4" style="padding: 20px; border: 1px solid var(--border-subtle); background: var(--bg-soft); outline: none;"></textarea>
             <button type="submit" class="btn-primary">Отправить запрос</button>
           </form>
           <p style="margin-top: 24px; font-size: 14px; color: var(--text-soft); text-align: center;">Запись на курс происходит после предварительного знакомства.</p>

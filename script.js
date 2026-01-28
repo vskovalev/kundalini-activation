@@ -105,22 +105,47 @@ function formatTime(seconds) {
   return `${min}:${sec < 10 ? '0' : ''}${sec}`;
 }
 
-// Simple Form Handling
+// AJAX Form Handling with Formspree
 const form = document.querySelector('form');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('button');
     const originalText = btn.textContent;
-    btn.textContent = 'Отправлено!';
-    btn.disabled = true;
-    btn.style.background = '#8e6c4a';
     
-    setTimeout(() => {
-      form.reset();
-      btn.textContent = originalText;
-      btn.disabled = false;
-      btn.style.background = '';
-    }, 3000);
+    // Status update
+    btn.textContent = 'Отправка...';
+    btn.disabled = true;
+
+    const formData = new FormData(form);
+    
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        btn.textContent = 'Отправлено!';
+        btn.style.background = '#8e6c4a';
+        form.reset();
+      } else {
+        const data = await response.json();
+        throw new Error(data.errors ? data.errors[0].message : 'Ошибка при отправке');
+      }
+    } catch (error) {
+      console.error(error);
+      btn.textContent = 'Ошибка';
+      btn.style.background = '#ff4b2b';
+    } finally {
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        btn.style.background = '';
+      }, 3000);
+    }
   });
 }
