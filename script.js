@@ -105,37 +105,35 @@ function formatTime(seconds) {
   return `${min}:${sec < 10 ? '0' : ''}${sec}`;
 }
 
-// AJAX Form Handling with Formspree
-const form = document.querySelector('form');
+// Google Apps Script Hook Handling
+const form = document.querySelector('#contact-form');
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyu7xPVb6b0GPo2CM2C1E6NJlDSVGNaXqpUb2oWya9aMLYzK4HMHcW_JGTsOPakrtpl/exec'; // Сюда нужно будет вставить ссылку
+
 if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('button');
     const originalText = btn.textContent;
     
-    // Status update
     btn.textContent = 'Отправка...';
     btn.disabled = true;
 
-    const formData = new FormData(form);
+    // Собираем данные в URLSearchParams для Apps Script
+    const formData = new URLSearchParams(new FormData(form));
     
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch(SCRIPT_URL, {
         method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        mode: 'no-cors', // Важно для Apps Script
+        body: formData
       });
 
-      if (response.ok) {
-        btn.textContent = 'Отправлено!';
-        btn.style.background = '#8e6c4a';
-        form.reset();
-      } else {
-        const data = await response.json();
-        throw new Error(data.errors ? data.errors[0].message : 'Ошибка при отправке');
-      }
+      // Так как mode: 'no-cors', мы не можем прочитать ответ, 
+      // но если нет ошибки сети, считаем что ок
+      btn.textContent = 'Отправлено!';
+      btn.style.background = '#8e6c4a';
+      form.reset();
+      
     } catch (error) {
       console.error(error);
       btn.textContent = 'Ошибка';
