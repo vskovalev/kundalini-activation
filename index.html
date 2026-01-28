@@ -220,7 +220,15 @@
           <h2>Начать путь</h2>
         </div>
         <div class="reveal" style="max-width: 600px; margin: 0 auto;">
-          <form id="contact-form" style="display: grid; gap: 24px;">
+          <!-- Невидимый iframe для отправки без перезагрузки -->
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.submitted){showSuccess();}"></iframe>
+          
+          <form action="https://script.google.com/macros/s/AKfycbyu7xPVb6b0GPo2CM2C1E6NJlDSVGNaXqpUb2oWya9aMLYzK4HMHcW_JGTsOPakrtpl/exec" 
+                method="POST" 
+                target="hidden_iframe" 
+                id="contact-form" 
+                onsubmit="window.submitted=true; document.querySelector('#contact-form button').textContent='Отправка...';"
+                style="display: grid; gap: 24px;">
             <input type="text" name="name" placeholder="Ваше имя" required style="padding: 20px; border: 1px solid var(--border-subtle); background: var(--bg-soft); outline: none;">
             <input type="text" name="contact" placeholder="Ваш Telegram / WhatsApp" required style="padding: 20px; border: 1px solid var(--border-subtle); background: var(--bg-soft); outline: none;">
             <textarea name="message" placeholder="Ваш запрос или опыт в практиках" rows="4" style="padding: 20px; border: 1px solid var(--border-subtle); background: var(--bg-soft); outline: none;"></textarea>

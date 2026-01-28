@@ -1,3 +1,17 @@
+// Google Apps Script Success Handler
+function showSuccess() {
+  const form = document.querySelector('#contact-form');
+  const btn = form.querySelector('button');
+  btn.textContent = 'Отправлено!';
+  btn.style.background = '#8e6c4a';
+  form.reset();
+  setTimeout(() => {
+    btn.textContent = 'Отправить запрос';
+    btn.style.background = '';
+    window.submitted = false;
+  }, 3000);
+}
+
 // Mobile Menu Toggle
 const navToggle = document.querySelector('.nav-toggle');
 if (navToggle) {
@@ -103,54 +117,4 @@ function formatTime(seconds) {
   const min = Math.floor(seconds / 60);
   const sec = Math.floor(seconds % 60);
   return `${min}:${sec < 10 ? '0' : ''}${sec}`;
-}
-
-// Google Apps Script Hook Handling
-const form = document.querySelector('#contact-form');
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyu7xPVb6b0GPo2CM2C1E6NJlDSVGNaXqpUb2oWya9aMLYzK4HMHcW_JGTsOPakrtpl/exec'; // Сюда нужно будет вставить ссылку
-
-if (form) {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('button');
-    const originalText = btn.textContent;
-    
-    btn.textContent = 'Отправка...';
-    btn.disabled = true;
-
-    // Собираем данные
-    const formData = new FormData(form);
-    const data = {};
-    formData.forEach((value, key) => data[key] = value);
-    
-    try {
-      // Используем простой POST запрос без сложных заголовков
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors', // Важно для обхода CORS у Google
-        cache: 'no-cache',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(data).toString()
-      });
-
-      // В режиме no-cors мы не получим ответ, поэтому считаем успех, 
-      // если не вылетело сетевое исключение
-      btn.textContent = 'Отправлено!';
-      btn.style.background = '#8e6c4a';
-      form.reset();
-      
-    } catch (error) {
-      console.error(error);
-      btn.textContent = 'Ошибка';
-      btn.style.background = '#ff4b2b';
-    } finally {
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.disabled = false;
-        btn.style.background = '';
-      }, 3000);
-    }
-  });
 }
