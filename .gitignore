@@ -1,0 +1,6 @@
+*.TIF
+*.tiff
+*.mov
+*.MOV
+*.mp4
+!src/audio/videoplayback.mp4

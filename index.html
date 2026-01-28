@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Курс «Фасилитатор Кундалини Активации» — Secret Union</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="#top" class="logo">Secret Union</a>
+        <button class="nav-toggle" aria-label="Menu" style="display: none;">
+          <span></span><span></span>
+        </button>
+        <div class="nav-links">
+          <a href="#about">О курсе</a>
+          <a href="#for-whom">Для кого</a>
+          <a href="#benefits">Результат</a>
+          <a href="#creator">Автор</a>
+          <a href="#apply">Запись</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="top">
+      <div class="audio-player-container">
+        <div class="audio-player">
+          <button class="audio-toggle" aria-label="Play/Pause">
+            <svg class="audio-icon-play" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M3 2L13 8L3 14V2Z"/>
+            </svg>
+            <svg class="audio-icon-pause" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="display: none;">
+              <rect x="4" y="2" width="3" height="12"/>
+              <rect x="9" y="2" width="3" height="12"/>
+            </svg>
+          </button>
+          <div class="audio-info">
+            <div class="audio-title">Sound of Silence</div>
+            <div class="audio-time">
+              <span class="audio-current">0:00</span> / <span class="audio-duration">0:00</span>
+            </div>
+          </div>
+          <audio id="background-audio" preload="metadata">
+            <source src="src/audio/videoplayback.mp4" type="audio/mp4">
+          </audio>
+        </div>
+      </div>
+
+      <section class="hero">
+        <div class="hero-bg">
+          <div class="hero-image">
+            <img src="src/imgs/Лес/Photo 27-06-23, 17 01 47.jpg" alt="Nature background">
+          </div>
+        </div>
+        <div class="hero-content reveal">
+          <span class="eyebrow">Secret Union presents</span>
+          <h1 class="hero-title">Фасилитатор Кундалини Активации</h1>
+          <p class="hero-subtitle">Профессиональный курс глубокого погружения в энергию, психологию и телесную осознанность.</p>
+          <div class="hero-cta">
+            <a href="#apply" class="btn-primary">Записаться на курс</a>
+            <a href="#about" class="btn-ghost">Подробнее</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="section-header reveal">
+          <span class="section-kicker">О курсе</span>
+          <h2>Соединение энергии, психологии и осознанности</h2>
+        </div>
+        <div class="grid-2 reveal">
+          <div class="section-text">
+            <p>Курс «Фасилитатор Кундалини Активации» от Secret Union — это недельная профессиональная подготовка, в которой энергия Кундалини соединяется с психологией, телесной осознанностью и умением работать с полем безопасно и осознанно.</p>
+            <p>Это обучение для тех, кто готов не просто чувствовать энергию, а уметь с ней работать, сопровождать других людей через трансформационные процессы и выходить в практику уверенно, экологично и профессионально.</p>
+            <p>Мы не копируем техники — мы учимся читать поле, держать пространство и работать с живой энергией.</p>
+          </div>
+          <div class="image-composition">
+            <img src="src/imgs/Водопад/Photo 25-07-23, 13 23 18.jpg" alt="Meditation" class="image-main">
+            <img src="src/imgs/Лес/Photo 27-06-23, 18 31 53.jpg" alt="Nature" class="image-sub">
+          </div>
+        </div>
+      </section>
+
+      <section id="format" class="section" style="background: var(--bg-soft);">
+        <div class="section-header reveal">
+          <span class="section-kicker">Формат обучения</span>
+          <h2>7 дней полного погружения</h2>
+        </div>
+        <div class="cards-grid reveal">
+          <div class="card">
+            <span class="serif" style="font-size: 48px; color: var(--accent); display: block; margin-bottom: 24px;">01</span>
+            <h3>Теория и база</h3>
+            <p>Структурированные знания о природе энергии, психологии процессов и физиологии тела.</p>
+          </div>
+          <div class="card">
+            <span class="serif" style="font-size: 48px; color: var(--accent); display: block; margin-bottom: 24px;">02</span>
+            <h3>Живые практики</h3>
+            <p>Ежедневные сессии, отработки в роли фасилитатора и глубокое личное проживание.</p>
+          </div>
+          <div class="card">
+            <span class="serif" style="font-size: 48px; color: var(--accent); display: block; margin-bottom: 24px;">03</span>
+            <h3>Сопровождение</h3>
+            <p>Поддержка после обучения, ответы на вопросы и помощь в первых шагах вашей практики.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="for-whom" class="section">
+        <div class="section-header reveal">
+          <span class="section-kicker">Для кого этот курс</span>
+          <h2>Путь проводника</h2>
+        </div>
+        <div class="grid-2 reveal">
+          <div class="image-composition" style="order: 2;">
+            <img src="src/imgs/Водопад/Photo 25-07-23, 14 41 33.jpg" alt="Practice" class="image-main">
+          </div>
+          <div class="section-text" style="order: 1;">
+            <p>Курс подойдёт вам, если вы уже работаете с телом, энергией или психикой (йога, тантра, массаж, рейки, психология) и хотите выйти на новый профессиональный уровень.</p>
+            <p>Для экспертов, которые чувствуют, что готовы работать глубже, точнее и сильнее. И для тех, кто чувствует призвание быть проводником, но хочет делать это осознанно и безопасно.</p>
+            <a href="#apply" class="btn-primary" style="margin-top: 24px; display: inline-block;">Записаться</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="benefits" class="section" style="background: var(--bg-muted);">
+        <div class="section-header reveal">
+          <span class="section-kicker">Что вы получите</span>
+          <h2>В процессе обучения</h2>
+        </div>
+        <div class="cards-grid reveal">
+          <div class="card">
+            <h3>Пространство</h3>
+            <p>Научитесь держать поле группы и проводить глубокие индивидуальные сессии.</p>
+          </div>
+          <div class="card">
+            <h3>Инструменты</h3>
+            <p>Освоите работу с телом через осознанные прикосновения и чтение живой энергии.</p>
+          </div>
+          <div class="card">
+            <h3>Практика</h3>
+            <p>Пройдёте через серию отработок и получите качественную обратную связь.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="support" class="section">
+        <div class="section-header reveal">
+          <span class="section-kicker">Сопровождение</span>
+          <h2>Вы не остаётесь одни</h2>
+        </div>
+        <div class="grid-2 reveal">
+          <div class="section-text">
+            <p>Обучение не заканчивается на последнем дне. Мы сопровождаем вас в процессе выхода в самостоятельную практику.</p>
+            <ul>
+              <li>Поддержка и ответы на вопросы в общем поле</li>
+              <li>Сопровождение в ваших первых сессиях</li>
+              <li>Пространство Secret Union — сообщество фасилитаторов</li>
+            </ul>
+            <p>Это фундамент вашей уверенности и профессиональной позиции.</p>
+          </div>
+          <div class="image-composition">
+            <img src="src/imgs/Водопад/Photo 25-07-23, 15 24 27.jpg" alt="Support" class="image-main">
+          </div>
+        </div>
+      </section>
+
+      <section id="result" class="section" style="background: var(--bg-soft);">
+        <div class="section-header reveal">
+          <span class="section-kicker">Результат</span>
+          <h2>Ваша новая профессиональная грань</h2>
+        </div>
+        <div class="cards-grid reveal">
+          <div class="card" style="background: white;">
+            <h3>Готовность</h3>
+            <p>Вы уверенно проводите сессии, понимая механику процессов и полевых взаимодействий.</p>
+          </div>
+          <div class="card" style="background: white;">
+            <h3>Глубина</h3>
+            <p>Ваша работа опирается на 15-летний опыт мастеров и психологический фундамент.</p>
+          </div>
+          <div class="card" style="background: white;">
+            <h3>Реализация</h3>
+            <p>Вы выходите в мир как сертифицированный проводник Secret Union.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="creator" class="section">
+        <div class="section-header reveal">
+          <span class="section-kicker">Автор курса</span>
+          <h2>Алёна</h2>
+        </div>
+        <div class="grid-2 reveal">
+          <div class="section-text">
+            <p class="serif" style="font-size: 24px; font-style: italic; margin-bottom: 32px;">«Моё пространство — про глубину. Про честный контакт с собой. Про энергию, которая просыпается, когда мы позволяем себе быть настоящими.»</p>
+            <p>Психолог (Sigmund Freud University, Милан) с 15-летним опытом практик. В своей работе я объединяю классическую психологию, активацию Кундалини, Inner Dance и энерготерапию.</p>
+            <p>Курс «Фасилитатор Кундалини Активации» — это результат моего личного и профессионального пути. Он создан для тех, кто хочет работать с энергией осознанно и глубоко.</p>
+          </div>
+          <div class="image-composition">
+            <img src="src/imgs/Лес/Photo 27-06-23, 18 33 45.jpg" alt="Alena" class="image-main">
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section reveal">
+        <span class="section-kicker">Стоимость участия</span>
+        <div class="price-tag">990 €</div>
+        <p style="margin-bottom: 40px; color: var(--text-soft);">7 дней глубокого погружения. Камерный формат, внимание к каждому.</p>
+        <a href="#apply" class="btn-primary">Забронировать место</a>
+      </section>
+
+      <section id="apply" class="section">
+        <div class="section-header reveal">
+          <span class="section-kicker">Регистрация</span>
+          <h2>Начать путь</h2>
+        </div>
+        <div class="reveal" style="max-width: 600px; margin: 0 auto;">
+          <form style="display: grid; gap: 24px;">
+            <input type="text" placeholder="Ваше имя" style="padding: 20px; border: 1px solid var(--border-subtle); background: var(--bg-soft); outline: none;">
+            <input type="text" placeholder="Ваш Telegram / WhatsApp" style="padding: 20px; border: 1px solid var(--border-subtle); background: var(--bg-soft); outline: none;">
+            <textarea placeholder="Ваш запрос или опыт в практиках" rows="4" style="padding: 20px; border: 1px solid var(--border-subtle); background: var(--bg-soft); outline: none;"></textarea>
+            <button type="submit" class="btn-primary">Отправить запрос</button>
+          </form>
+          <p style="margin-top: 24px; font-size: 14px; color: var(--text-soft); text-align: center;">Запись на курс происходит после предварительного знакомства.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-logo">Secret Union</div>
+      <p style="opacity: 0.5; font-size: 14px;">© 2026 Secret Union. Все права защищены.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
