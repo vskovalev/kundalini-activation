@@ -118,18 +118,25 @@ if (form) {
     btn.textContent = 'Отправка...';
     btn.disabled = true;
 
-    // Собираем данные в URLSearchParams для Apps Script
-    const formData = new URLSearchParams(new FormData(form));
+    // Собираем данные
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => data[key] = value);
     
     try {
-      const response = await fetch(SCRIPT_URL, {
+      // Используем простой POST запрос без сложных заголовков
+      await fetch(SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors', // Важно для Apps Script
-        body: formData
+        mode: 'no-cors', // Важно для обхода CORS у Google
+        cache: 'no-cache',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(data).toString()
       });
 
-      // Так как mode: 'no-cors', мы не можем прочитать ответ, 
-      // но если нет ошибки сети, считаем что ок
+      // В режиме no-cors мы не получим ответ, поэтому считаем успех, 
+      // если не вылетело сетевое исключение
       btn.textContent = 'Отправлено!';
       btn.style.background = '#8e6c4a';
       form.reset();
